@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div className="whole-page">
-      <SideNav />
+      {/* <SideNav /> */}
       <h1> My Crypto List</h1>
       <input
         type="text"
