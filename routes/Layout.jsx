@@ -2,7 +2,7 @@
 // that is displayed on every page.
 // it will also have its own route
 
-import { Outlet, link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 const Layout = () => {
   return (
