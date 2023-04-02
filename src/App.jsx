@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 import "./App.css";
 import CoinInfo from "./components/CoinInfo";
-import SideNav from "./components/SideNav";
+// import SideNav from "./components/SideNav";
 
 function App() {
   const [list, setList] = useState(null);
@@ -44,7 +44,7 @@ function App() {
       <h1> My Crypto List</h1>
       <input
         type="text"
-        pleaceholder="Search..."
+        placeholder="Search..."
         onChange={(inputString) => searchItem(inputString.target.value)}
       />
       <ul>
