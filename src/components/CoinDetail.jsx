@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CoinChart from "./CoinChart";
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 function CoinDetail() {
@@ -32,8 +33,6 @@ function CoinDetail() {
 
     getCoinDetail().catch(console.error);
   }, []);
-
-  const dummyButton2 = <button>dummyButton2</button>;
 
   return (
     <>
@@ -115,6 +114,10 @@ function CoinDetail() {
               </tr>
             </tbody>
           </table>
+          <CoinChart
+            symbol={params.symbol}
+            market={fullDetails.numbers[params.symbol].USD.MARKET}
+          />
         </div>
       )}
     </>
