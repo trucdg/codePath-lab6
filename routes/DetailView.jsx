@@ -1,9 +1,10 @@
 import React from "react";
+import CoinDetail from "../src/components/CoinDetail";
 
 function DetailView() {
   return (
     <div>
-      <p> Detail View</p>
+      <CoinDetail />
     </div>
   );
 }

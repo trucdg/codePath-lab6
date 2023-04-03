@@ -38,6 +38,8 @@ function App() {
     fetchAllCoinData().catch(console.error);
   }, []);
 
+  const dummyButton = <button>I'm a dummy</button>;
+
   return (
     <div className="whole-page">
       {/* <SideNav /> */}
