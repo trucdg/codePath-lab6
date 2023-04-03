@@ -31,7 +31,7 @@ function CoinDetail() {
     };
 
     getCoinDetail().catch(console.error);
-  }, [dummyButton2]);
+  }, []);
 
   const dummyButton2 = <button>dummyButton2</button>;
 
