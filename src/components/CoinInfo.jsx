@@ -5,14 +5,27 @@ const API_KEY = import.meta.env.VITE_APP_API_KEY;
 const CoinInfo = ({ image, name, symbol }) => {
   const [price, setPrice] = useState(null);
   useEffect(() => {
+    const controller = new AbortController();
+
     const getCoinPrice = async () => {
-      const response = await fetch(
-        `https://min-api.cryptocompare.com/data/price?fsym=${symbol}}&tsyms=USD`
-      );
-      const json = response.json();
-      setPrice(json);
+      try {
+        const response = await fetch(
+          `https://min-api.cryptocompare.com/data/price?fsym=${symbol}&tsyms=USD&api_key=` +
+            API_KEY,
+          { signal: controller.signal }
+        );
+        const json = await response.json();
+        setPrice(json);
+      } catch (error) {
+        if (error.name === "AbortError") {
+          // It's ok, don't do anything
+        } else {
+          console.error(error);
+        }
+      }
     };
-    getCoinPrice().catch(console.error);
+    getCoinPrice();
+    return () => controller.abort();
   }, [symbol]);
   return (
     <div>
